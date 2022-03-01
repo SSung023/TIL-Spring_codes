@@ -5,6 +5,7 @@ import Practice1.practicespring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class MemberController {
@@ -20,7 +21,7 @@ public class MemberController {
         return "members/createMemberForm";
     }
 
-    @GetMapping("/members/new")
+    @PostMapping("/members/new")
     public String create(MemberForm form){
         // 멤버 객체 생성
         Member member = new Member();
