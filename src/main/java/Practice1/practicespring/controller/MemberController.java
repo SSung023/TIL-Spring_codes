@@ -30,6 +30,7 @@ public class MemberController {
         Member member = new Member();
         member.setName(form.getName());
 
+        // 생성한 멤버 객체 회원 가입
         memberService.join(member);
         return "redirect:/";
     }
