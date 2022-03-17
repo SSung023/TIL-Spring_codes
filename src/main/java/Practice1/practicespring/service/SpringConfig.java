@@ -1,6 +1,7 @@
 package Practice1.practicespring.service;
 
 import Practice1.practicespring.repository.JdbcMemberRepository;
+import Practice1.practicespring.repository.JdbcTemplateMemberRepository;
 import Practice1.practicespring.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -26,6 +27,7 @@ public class SpringConfig {
     @Bean
     public MemberRepository memberRepository(){
         //return new MemoryMemberRepository();
-        return new JdbcMemberRepository(dataSource);
+        //return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
