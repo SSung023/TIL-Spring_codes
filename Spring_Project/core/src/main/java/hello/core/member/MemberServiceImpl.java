@@ -3,7 +3,11 @@ package hello.core.member;
 public class MemberServiceImpl implements MemberService{
 
     // member 정보를 저장하기 위한 memberRepository 변수 선언 (다형성)
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberServiceImpl(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
 
     @Override
