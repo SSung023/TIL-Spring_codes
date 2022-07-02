@@ -28,6 +28,7 @@ class RateDiscountPolicyTest {
     void vip_x(){
         //given
         Member member = new Member(2L, "memberVIP", Grade.BASIC);
+        
         //when
         int discount = discountPolicy.discount(member, 10000);
         //then
