@@ -43,6 +43,7 @@ public class AllBeanTest {
         }
 
         public int discount(Member member, int price, String discountCode) {
+            // discountCode에 해당하는 discountPolicy를 적용
             DiscountPolicy discountPolicy = policyMap.get(discountCode);
             return discountPolicy.discount(member, price);
         }
