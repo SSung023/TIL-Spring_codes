@@ -21,6 +21,12 @@ public class AllBeanTest {
     void findAllBean(){
         ApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class, DiscountService.class);
 
+//        String[] beanDefinitionNames = ac.getBeanDefinitionNames();
+//        for (String beanDefinitionName : beanDefinitionNames) {
+//            Object bean = ac.getBean(beanDefinitionName);
+//            System.out.println("name = " + beanDefinitionName + " // object = " + bean);
+//        }
+
         DiscountService discountService = ac.getBean(DiscountService.class);
         Member member = new Member(1L, "userA", Grade.VIP);
 
