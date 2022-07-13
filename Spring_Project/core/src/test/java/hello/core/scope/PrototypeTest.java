@@ -23,7 +23,7 @@ public class PrototypeTest {
         System.out.println("prototypeBean1 = " + prototypeBean1);
         System.out.println("prototypeBean2 = " + prototypeBean2);
 
-        Assertions.assertThat(prototypeBean1).isNotSameAs(prototypeBean2);
+        Assertions.assertThat(prototypeBean1).isNotEqualTo(prototypeBean2);
 
         // 밑과 같이 클라이언트가 직접 destroy를 호출해야 한다.
         prototypeBean1.destroy();
