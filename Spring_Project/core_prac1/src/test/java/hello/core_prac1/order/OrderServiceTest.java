@@ -1,6 +1,7 @@
 package hello.core_prac1.order;
 
 import hello.core_prac1.AppConfig;
+import hello.core_prac1.AutoAppConfig;
 import hello.core_prac1.discount.DiscountPolicy;
 import hello.core_prac1.discount.RateDiscountPolicy;
 import hello.core_prac1.member.Grade;
@@ -19,13 +20,13 @@ class OrderServiceTest {
     @Test
     @DisplayName("vip는 고정 할인을 받을 수 있다.")
     void fixOrder_vip() {
-        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class);
         MemberService memberService = ac.getBean(MemberService.class);
         OrderService orderService = ac.getBean(OrderService.class);
 
         Member vip = new Member(1L, "userA", Grade.VIP);
         memberService.join(vip);
-        Order item1 = orderService.createOrder(1L, "item1", 10000);
+        Order item1 = orderService.createOrder(1L, "item1", 20000, "fixDiscountPolicy");
 
         // vip이기 때문에 고정 할인 정책에 의해 1000원을 할인받을 것이다.
         Assertions.assertThat(item1.getDiscountPrice()).isEqualTo(1000);
@@ -47,13 +48,13 @@ class OrderServiceTest {
     @Test
     @DisplayName("vip가 아닌 고객은 할인을 받을 수 없다.")
     void order_basic(){
-        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class);
         MemberService memberService = ac.getBean(MemberService.class);
         OrderService orderService = ac.getBean(OrderService.class);
 
         Member basic = new Member(2L, "userB", Grade.BASIC);
         memberService.join(basic);
-        Order item2 = orderService.createOrder(2L, "item1", 10000);
+        Order item2 = orderService.createOrder(2L, "item1", 10000, "rateDiscountPolicy");
 
         // basic 회원이기 때문에 할인을 받을 수 없다.
         Assertions.assertThat(item2.getDiscountPrice()).isEqualTo(0);
