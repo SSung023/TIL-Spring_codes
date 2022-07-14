@@ -33,4 +33,5 @@ public class AppConfig {
 //    public DiscountPolicy discountPolicy(){
 //        return new FixDiscountPolicy();
 //    }
+    // 수동 등록을 사용하는 경우에 policyMap을 어떻게 넣을 것인가?
 }
