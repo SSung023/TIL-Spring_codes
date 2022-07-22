@@ -34,5 +34,5 @@ public class AppConfig {
 //        return new FixDiscountPolicy();
 //    }
     // 수동 등록을 사용하는 경우에 policyMap을 어떻게 넣을 것인가?
-    // public Map<String, DiscountPolicy> policyMap()를 만들기?
+    // public Map<String, DiscountPolicy> policyMap()를 통해 bean으로 등록한 후, 의존성 주입하기
 }
