@@ -14,7 +14,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/basic/items")
-@RequiredArgsConstructor // @Autowired가 있는 생성자를 자동 생성
+@RequiredArgsConstructor // @Autowired가 있는 생성자를 자동 생성 -> 생성자 생략 가능
 public class BasicItemController {
 
     private final ItemRepository itemRepository;
