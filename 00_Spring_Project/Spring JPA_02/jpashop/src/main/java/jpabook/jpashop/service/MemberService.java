@@ -44,4 +44,15 @@ public class MemberService {
     public Member findOne(Long memberId){
         return memberRepository.findOne(memberId);
     }
+    
+    /**
+     * 변경 감지 기능을 이용하여 회원 이름 필드의 값 변경
+     * update 메서드의 경우 Member를 반환하면, 커맨드와 쿼리가 같이 있는 꼴이 된다.
+     * 따라서 void or Long id 정도만 반환하도록 하자.
+     */
+    @Transactional
+    public void update(Long id, String name){
+        Member member = memberRepository.findOne(id);
+        member.setName(name);
+    }
 }
