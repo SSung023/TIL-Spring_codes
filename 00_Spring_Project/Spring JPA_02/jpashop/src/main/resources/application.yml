@@ -6,7 +6,7 @@ spring:
     driver-class-name: org.h2.Driver
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create #none으로 하면 계속 남아있고, create로 하면 실행할 때마다 새로 생김
     properties:
       hibernate:
         # show_sql: true
