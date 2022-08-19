@@ -4,7 +4,6 @@ import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import javax.persistence.EntityManager;
@@ -89,5 +88,17 @@ public class OrderRepository {
             query = query.setParameter("name", orderSearch.getMemberName());
         }
         return query.getResultList();
+    }
+
+    /**
+     * ordersV3()
+     * fetch-join 을 통해 Member와 Delivery를 join 한 후, select 문으로 한 번에 가지고 오는 것
+     * 객체 값을 다 채워서 return 하는 방법
+     */
+    public List<Order> findAllWithMemberDelivery() {
+        return em.createQuery("select o from Order o" +
+                " join fetch o.member m" +
+                " join fetch o.delivery d", Order.class)
+                .getResultList();
     }
 }
