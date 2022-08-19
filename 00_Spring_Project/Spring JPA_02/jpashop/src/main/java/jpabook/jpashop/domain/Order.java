@@ -46,8 +46,8 @@ public class Order {
 
     //== 연관관계 편의 메서드==//
     public void setMember(Member member){
-        this.member = member;
-        member.getOrders().add(this);
+        this.member = member; // Order(본인)의 필드값 member 설정
+        member.getOrders().add(this); // 연관관계인 Member의 List<Order>에 member(본인) 설정
     }
 
     public void addOrderItem(OrderItem orderItem){
