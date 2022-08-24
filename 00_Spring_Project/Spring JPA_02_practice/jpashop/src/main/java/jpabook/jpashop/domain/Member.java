@@ -2,6 +2,7 @@ package jpabook.jpashop.domain;
 
 import jpabook.jpashop.domain.valueObject.Address;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
+@Getter @Setter
 public class Member {
 
     @Id @GeneratedValue

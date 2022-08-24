@@ -3,11 +3,12 @@ package jpabook.jpashop.domain;
 import jpabook.jpashop.domain.status.DeliveryStatus;
 import jpabook.jpashop.domain.valueObject.Address;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Getter
+@Getter @Setter
 public class Delivery {
 
     @Id @GeneratedValue
