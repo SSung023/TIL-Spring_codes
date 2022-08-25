@@ -25,4 +25,14 @@ public abstract class Item {
 
 //    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
 //    List<OrderItem> orderItems = new ArrayList<>();
+
+
+    //== stock 관련 ==//
+    public void addStock(int count){
+        this.stockQuantity += count;
+    }
+    public void removeStock(int count){
+        this.stockQuantity -= count;
+    }
+
 }
