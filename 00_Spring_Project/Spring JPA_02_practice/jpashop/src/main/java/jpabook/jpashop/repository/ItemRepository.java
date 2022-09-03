@@ -15,7 +15,12 @@ public class ItemRepository {
 
 
     public void save(Item item){
-        em.persist(item);
+        if(item.getId() == null){
+            em.persist(item);
+        }
+        else{
+            em.merge(item);
+        }
     }
 
     public List<Item> findItems(){
