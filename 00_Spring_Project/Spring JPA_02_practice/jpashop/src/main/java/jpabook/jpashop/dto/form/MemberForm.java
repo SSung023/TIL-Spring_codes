@@ -1,4 +1,4 @@
-package jpabook.jpashop.dto;
+package jpabook.jpashop.dto.form;
 
 import jpabook.jpashop.domain.valueObject.Address;
 import lombok.Getter;

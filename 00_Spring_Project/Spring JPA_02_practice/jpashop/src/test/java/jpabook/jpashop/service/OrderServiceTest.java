@@ -3,7 +3,6 @@ package jpabook.jpashop.service;
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
 import jpabook.jpashop.domain.item.Book;
-import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.domain.status.OrderStatus;
 import jpabook.jpashop.domain.valueObject.Address;
 import jpabook.jpashop.exception.NotEnoughStockException;
@@ -45,7 +44,7 @@ class OrderServiceTest {
         //then
         Order findOrder = orderRepository.findOne(orderId);
 
-        Assertions.assertThat(findOrder.getOrderStatus()).isEqualTo(OrderStatus.ORDER);
+        Assertions.assertThat(findOrder.getStatus()).isEqualTo(OrderStatus.ORDER);
         Assertions.assertThat(findOrder.getOrderItems().size()).isEqualTo(1);
         Assertions.assertThat(findOrder.getTotalPrice()).isEqualTo(book.getPrice() * orderCount);
         Assertions.assertThat(book.getStockQuantity()).isEqualTo(98);
@@ -85,7 +84,7 @@ class OrderServiceTest {
 
         //then
         Order findOrder = orderRepository.findOne(orderId);
-        Assertions.assertThat(findOrder.getOrderStatus()).isEqualTo(OrderStatus.CANCEL);
+        Assertions.assertThat(findOrder.getStatus()).isEqualTo(OrderStatus.CANCEL);
         Assertions.assertThat(item.getStockQuantity()).isEqualTo(10);
     }
 

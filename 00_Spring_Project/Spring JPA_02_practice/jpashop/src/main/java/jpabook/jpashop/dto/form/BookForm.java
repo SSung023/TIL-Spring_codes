@@ -1,4 +1,4 @@
-package jpabook.jpashop.dto;
+package jpabook.jpashop.dto.form;
 
 import lombok.Getter;
 import lombok.Setter;

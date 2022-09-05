@@ -31,7 +31,7 @@ public class Order {
     private Delivery delivery;
 
     @Enumerated(EnumType.STRING)
-    private OrderStatus orderStatus;
+    private OrderStatus status;
 
     private LocalDateTime orderDate;
 
@@ -60,7 +60,7 @@ public class Order {
             order.addOrderItem(orderItem);
         }
 
-        order.setOrderStatus(OrderStatus.ORDER);
+        order.setStatus(OrderStatus.ORDER);
         order.setOrderDate(LocalDateTime.now());
         return order;
     }
@@ -77,7 +77,7 @@ public class Order {
         for (OrderItem orderItem : orderItems) {
             orderItem.cancel();
         }
-        this.setOrderStatus(OrderStatus.CANCEL);
+        this.setStatus(OrderStatus.CANCEL);
     }
 
     /**
