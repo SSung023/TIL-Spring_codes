@@ -24,7 +24,7 @@ public class OrderItem {
     private Item item;
 
     private int orderPrice;
-    private int orderCount;
+    private int count;
 
 
     //== OrderItem 생성 메서드 ==//
@@ -32,7 +32,7 @@ public class OrderItem {
         OrderItem orderItem = new OrderItem();
         orderItem.setItem(item);
         orderItem.setOrderPrice(orderPrice);
-        orderItem.setOrderCount(orderCount);
+        orderItem.setCount(orderCount);
 
         item.removeStock(orderCount);
         return orderItem;
@@ -40,10 +40,10 @@ public class OrderItem {
 
     //== 비지니스 로직==//
     public void cancel(){
-        getItem().addStock(orderCount);
+        getItem().addStock(count);
     }
 
     public int getTotalPrice(){
-        return getOrderPrice() * getOrderCount();
+        return getOrderPrice() * this.getCount();
     }
 }

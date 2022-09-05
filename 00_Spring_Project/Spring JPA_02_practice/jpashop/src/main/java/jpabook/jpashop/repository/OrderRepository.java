@@ -26,11 +26,12 @@ public class OrderRepository {
     }
 
 
-    public List<Order> findAllByString(OrderSearch orderSearch) {
-        //language=JPAQL
+    public List<Order> findAllByString(OrderSearch orderSearch){
+        // 실무에서도 사용하지 않는 방법
         String jpql = "select o From Order o join o.member m";
         boolean isFirstCondition = true;
-        //주문 상태 검색
+
+        //주문 상태 검색: 실무에서 사용하지 않음
         if (orderSearch.getOrderStatus() != null) {
             if (isFirstCondition) {
                 jpql += " where";
