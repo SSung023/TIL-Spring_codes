@@ -19,8 +19,7 @@ import java.util.stream.Collectors;
 public class MemberApiController {
 
     private final MemberService memberService;
-
-
+    
     /**
      * 회원 목록 조회
      * API 스펙 : 회원 이름, 주소
