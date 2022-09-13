@@ -36,8 +36,8 @@ public class MemberApiController {
 
     /**
      * 회원 가입
-     * REQ : String name, Address address
-     * RES : Long id
+     * Request : String name, Address address
+     * Response : Long id
      */
     @PostMapping("/api/members")
     public CreateMemberResponse saveMember(@RequestBody @Valid CreateMemberRequest request){
