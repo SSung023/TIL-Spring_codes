@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Getter @Setter
 @Entity
-@Table(name = "MEMBER")
+@Table // (name = "MEMBER")을 따로 설정하지 않는다면, 엔티티의 이름으로 자동 설정된다.
 public class Member {
 
     @Id
