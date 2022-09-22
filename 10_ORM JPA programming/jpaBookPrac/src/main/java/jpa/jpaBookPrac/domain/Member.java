@@ -3,10 +3,9 @@ package jpa.jpaBookPrac.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Getter @Setter
 @Entity
@@ -17,8 +16,22 @@ public class Member {
     @Column(name = "ID")
     private String id;
 
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false, length = 10)
     private String username;
 
     private Integer age;
+
+    @Enumerated(EnumType.STRING)
+    private Grade grade;
+
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date createdDate;
+    private LocalDateTime createdDate;
+
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date lastModifiedDate;
+    private LocalDateTime lastModifiedDate;
+
+    @Lob
+    private String description;
 }
